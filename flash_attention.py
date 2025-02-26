@@ -253,7 +253,7 @@ def _attn_fwd(
         )
 
     # This is needed to compute the logsumexp during the backward pass
-    m_i = tl.math.log(l_i)
+    m_i += tl.math.log(l_i)
 
     O_block = O_block / l_i[:, None]
     m_ptrs = M + index_batch_head * SEQ_LEN + offs_q
