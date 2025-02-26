@@ -1,4 +1,5 @@
 import torch
+from flash_attention import FlashAttention
 
 DEVICE = "cuda"
 
@@ -43,4 +44,9 @@ def test_op(BATCH_SIZE, NUM_HEADS, SEQ_LEN, HEAD_DIM, causal, dtype=torch.float1
     assert torch.allclose(ref_dK, tri_dK, atol=atol, rtol=rtol)
     assert torch.allclose(ref_dV, tri_dV, atol=atol, rtol=rtol)
     assert torch.allclose(ref_dQ, tri_dQ, atol=atol, rtol=rtol)
+    print("Passed")
     
+if __name__ == "__main__":
+     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=1024, HEAD_DIM=64, causal=True)
+     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=1024, HEAD_DIM=64, causal=False)
+     print("PASSED")
