@@ -47,6 +47,5 @@ def test_op(BATCH_SIZE, NUM_HEADS, SEQ_LEN, HEAD_DIM, causal, dtype=torch.float1
     print("Passed")
     
 if __name__ == "__main__":
-     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=1024, HEAD_DIM=64, causal=True)
-     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=1024, HEAD_DIM=64, causal=False)
-     print("PASSED")
+     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=2048, HEAD_DIM=64, causal=True)
+     test_op(BATCH_SIZE=8, NUM_HEADS=16, SEQ_LEN=2048, HEAD_DIM=64, causal=False)

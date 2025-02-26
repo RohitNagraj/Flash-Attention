@@ -362,7 +362,7 @@ class FlashAttention(torch.autograd.Function):
 
         _attn_bwd_dk_dv[grid](
             Q=Q,
-            K=Q,
+            K=K,
             V=V,
             softmax_scale=ctx.softmax_scale,
             dO=dO,
@@ -387,7 +387,7 @@ class FlashAttention(torch.autograd.Function):
 
         _attn_bwd_dq[grid](
             Q=Q,
-            K=Q,
+            K=K,
             V=V,
             softmax_scale=ctx.softmax_scale,
             dO=dO,
